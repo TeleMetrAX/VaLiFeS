@@ -1,0 +1,90 @@
+{
+  "description": {
+    "filename": "String: Path to the csv file containing speed measurement data relative to the ./data/csv/ folder",
+    "begin": "Float: Section start time in seconds (e.g., 0.0)",
+    "end": "Float: Section end time in seconds (e.g., 1.5)",
+    "top_speed": "Integer: Maximum speed achieved in km/h, rounded to the closest multiple of ten",
+    "driver": "String: Name of the driver (e.g., 'Driver A')"
+  },
+  "acceleration": [
+    {
+      "filename": "00000001_00000001",
+      "begin": 370,
+      "end": 417.1,
+      "top_speed": 50,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000001_00000001",
+      "begin": 469,
+      "end": 488,
+      "top_speed": 50,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 298,
+      "end": 358,
+      "top_speed": 70,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 468,
+      "end": 480,
+      "top_speed": 50,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 733,
+      "end": 780,
+      "top_speed": 60,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 997,
+      "end": 1017.5,
+      "top_speed": 50,
+      "driver": "Tien"
+    }
+  ],
+  "deceleration": [
+    {
+      "filename": "00000001_00000001",
+      "begin": 417.1,
+      "end": 460,
+      "top_speed": 50,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000001_00000001",
+      "begin": 562,
+      "end": 608,
+      "top_speed": 40,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 627,
+      "end": 694,
+      "top_speed": 70,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 780,
+      "end": 814,
+      "top_speed": 60,
+      "driver": "Tien"
+    },
+    {
+      "filename": "00000003_00000001",
+      "begin": 1075,
+      "end": 1106,
+      "top_speed": 50,
+      "driver": "Tien"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+MEASUREMENTS_FOLDER =\
+    '../../data/csv'
+
+SAMPLING_PERIOD = .2  # s
+DIFF_THRESHOLD = .2  # s
+LIMIT_OF_MISSING = 1  # s
