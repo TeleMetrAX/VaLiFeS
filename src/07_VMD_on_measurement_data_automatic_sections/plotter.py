@@ -232,6 +232,12 @@ def plot_highest_energy_mode_centre_frequencies(
         else:
             x_max = 1.06 * np.max(t_diffs)
             y_max = 1.06 * np.max(ymaxs)
+
+        if len(conf.ORDERS) == 1:
+            y_axis_title = r'$T_{k_' + str(conf.ORDERS[0]) + r'}$, mode period [s]'
+        else:
+            y_axis_title = r'$T_{k_i}$, mode period [s]'
+
         if combine_acc_dec:
             if axi == 1:
                 ax.set_xlim([0, x_max])
@@ -242,12 +248,11 @@ def plot_highest_energy_mode_centre_frequencies(
 
                 pos_o = ax.get_position()
                 if target == 'view':
-                    ax.set_ylabel(r'$T_{k_i}$, inverse centre frequency of modes [s]')
+                    ax.set_ylabel(y_axis_title)
                     pos_n = [pos_o.x0 - .03, pos_o.y0 - .02, 1.14 * pos_o.width, 1.15 * pos_o.height]
                     fig.set_size_inches(22 / 2.54, 15 / 2.54)  # :(
                 elif target == 'paper':
-                    # ax.set_ylabel(r'$T_{k_i}$, inverse centre frequency' + '\n' + 'of modes [s]')
-                    ax.set_ylabel(r'$T_{k_i}$, inverse centre frequency of modes [s]')
+                    ax.set_ylabel(y_axis_title)
                     pos_n = [pos_o.x0 - .03, pos_o.y0 - .01, 1.14 * pos_o.width, 1.15 * pos_o.height]
                     fig.set_size_inches(16 / 2.54, 12 / 2.54)  # :(
                 else:
@@ -260,7 +265,7 @@ def plot_highest_energy_mode_centre_frequencies(
             ax.set_xlim([0, x_max])
             ax.set_ylim([0, y_max])
             ax.set_xlabel(r'$\tau_\mathrm{acc}$, acceleration time [s]')
-            ax.set_ylabel(r'$T_{k_i}$, inverse centre frequency of modes [s]')
+            ax.set_ylabel(y_axis_title)
             # ax.legend(bbox_to_anchor=(1, .5), loc="center left")
             ax.legend(plots, [p.get_label() for p in plots], loc='upper right')
             ax.grid()
@@ -299,10 +304,13 @@ def plot_lines_axs(ax: plt.Axes, which_orders: list, plot_as: list = None):
         a_s = plot_as
 
     if len(a_s) == 1:
-        label_str = r'$T_{k_i} = ' + get_a_str(a_s[0]) + r'\cdot \tau_\mathrm{acc}$'
+        if len(conf.ORDERS) == 1:
+            label_str = r'$T_{k_' + str(conf.ORDERS[0]) + r'} = ' + get_a_str(a_s[0]) + r'\cdot \tau_\mathrm{acc}$'
+        else:
+            label_str = r'$T_{k_i} = ' + get_a_str(a_s[0]) + r'\cdot \tau_\mathrm{acc}$'
     else:
         label_str = r'$T_{k_i} = c \cdot \tau_\mathrm{acc}, \: c \in \{ ' + \
-                ', '.join([get_a_str(a) for a in a_s]) + ' \}$'
+                    ', '.join([get_a_str(a) for a in a_s]) + ' \}$'
     plot = None
     for a in a_s:
         line_x, line_y = lf.get_line(0, ax.get_xlim()[1], a)
